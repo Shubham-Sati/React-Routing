@@ -3,13 +3,14 @@ import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  height: 4rem;
+  height: 8%;
 `;
 const Container = styled.div`
   display: flex;
@@ -65,7 +66,9 @@ const Navbar = ({ openSidebar }) => {
         <Icon>
           <MenuIcon onClick={openSidebar} />
         </Icon>
-        <Logo>YouTube</Logo>
+        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+          <Logo>YouTube</Logo>
+        </Link>
       </Container>
       <Container>
         <SerarchBar placeholder="Search" />

@@ -16,12 +16,12 @@ const Container = styled.div`
   font-size: 24px;
 `;
 
-const Home = () => {
+const Library = () => {
   return (
     <Wrapper>
-      <Container>This is Home Page</Container>
+      <Container>This is Library Page</Container>
     </Wrapper>
   );
 };
 
-export default Home;
+export default Library;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
@@ -7,10 +7,12 @@ import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: white;
-  width: 14rem;
+  width: 13rem;
+  height: 94%;
   position: absolute;
   top: 0;
   left: 0;
@@ -54,7 +56,8 @@ const SidebarItems = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 const Items = styled.div`
   display: flex;
@@ -112,17 +115,26 @@ const Sidebar = ({ sidebar, openSidebar }) => {
             <Icon>
               <MenuIcon onClick={openSidebar} />
             </Icon>
-            <Logo>YouTube</Logo>
+            <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+              <Logo onClick={openSidebar}>YouTube</Logo>
+            </Link>
           </Container>
           <SidebarItems>
-            <Items onClick={handleSidebar}>
-              <HomeIcon />
-              <Span>Home</Span>
-            </Items>
-            <Items onClick={handleSidebar}>
-              <SubscriptionsIcon />
-              <Span>Subscriptions</Span>
-            </Items>
+            <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+              <Items onClick={handleSidebar}>
+                <HomeIcon />
+                <Span>Home</Span>
+              </Items>
+            </Link>
+            <Link
+              to="/subscriptions"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <SubscriptionsIcon />
+                <Span>Subscriptions</Span>
+              </Items>
+            </Link>
             <Hr />
             <SignIn>
               <Span>Sign in to like videos, comments, and subscribe</Span>
@@ -132,27 +144,67 @@ const Sidebar = ({ sidebar, openSidebar }) => {
               </AvatarDiv>
             </SignIn>
             <Hr />
-            <Items onClick={handleSidebar}>
-              <VideoLibraryIcon />
-              <Span>Library</Span>
-            </Items>
-            <Items onClick={handleSidebar}>
-              <HistoryToggleOffIcon />
-              <Span>History</Span>
-            </Items>
+            <Link
+              to="/library"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <VideoLibraryIcon />
+                <Span>Library</Span>
+              </Items>
+            </Link>
+            <Link
+              to="/history"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <HistoryToggleOffIcon />
+                <Span>History</Span>
+              </Items>
+            </Link>
             <Hr />
-            <Items onClick={handleSidebar}>
-              <LocalFireDepartmentIcon />
-              <Span>Explore</Span>
-            </Items>
-            <Items onClick={handleSidebar}>
-              <HomeIcon />
-              <Span>Home</Span>
-            </Items>
-            <Items onClick={handleSidebar}>
-              <SubscriptionsIcon />
-              <Span>Subscriptions</Span>
-            </Items>
+            <Link
+              to="/videos"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <LocalFireDepartmentIcon />
+                <Span>Explore</Span>
+              </Items>
+            </Link>
+            <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+              <Items onClick={handleSidebar}>
+                <HomeIcon />
+                <Span>Home</Span>
+              </Items>
+            </Link>
+            <Link
+              to="/subscriptions"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <SubscriptionsIcon />
+                <Span>Subscriptions</Span>
+              </Items>
+            </Link>
+            <Link
+              to="/library"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <VideoLibraryIcon />
+                <Span>Library</Span>
+              </Items>
+            </Link>
+            <Link
+              to="/history"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Items onClick={handleSidebar}>
+                <HistoryToggleOffIcon />
+                <Span>History</Span>
+              </Items>
+            </Link>
           </SidebarItems>
         </Wrapper>
       )}
